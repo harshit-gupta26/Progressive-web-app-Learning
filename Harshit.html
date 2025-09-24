@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Focotech Learning</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   
+  <header class="navbar">
+    <div class="navbar-container">
+      <!-- Navigation Links first -->
+      <nav class="nav-links">
+        <a href="#Home">Home</a>
+        <a href="#Courses">Courses</a>
+        <a href="#Leaderboard">Leaderboard</a>
+        <a href="#Certificates">Certificates</a>
+        <a href="#Contact">Contact</a>
+      </nav>
+  
+      <!-- Logo in the middle/after links -->
+      <a href="#Home" class="logo">
+        <img src="https://cdn.vectorstock.com/i/500p/41/90/skill-development-word-concepts-mint-banner-vector-42394190.jpg" alt="Focotech Logo">
+      </a>
+  
+      <!-- Search + CTA Buttons -->
+      <div class="navbar-right">
+        <div class="search-box">
+          <input type="text" id="searchInput"  placeholder="Search..."/>
+          <button onclick="handleSearch()" >🔍</button>
+         
+
+        </div>
+        <div class="cta-buttons">
+          <button class="btn-secondary" onclick="openModal('loginModal')">Login / Register</button>
+          <button class="btn-primary" >Get Started</button>
+        </div>
+        <!-- <div class="hamburger">&#9776;</div> -->
+        <div class="hamburger" aria-label="Toggle navigation menu">&#9776;</div>
+
+      </div>
+    </div>
+  </header>
+  
+
+  <!-- Hero Section -->
+  <section class="hero"  id="Home">
+    <div class="hero-content">
+      <h1>Learn Web Development & UI/UX Design</h1>
+      <p>Master skills with curated lessons, track your progress, and earn certificates.</p>
+      <div class="hero-buttons">
+        <button class="btn-primary">Start Learning</button>
+
+        <button class="btn-secondary" onclick="document.getElementById('Courses').scrollIntoView({ behavior: 'smooth' })">
+            Explore Courses
+          </button>
+
+          
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://easy-peasy.ai/cdn-cgi/image/quality=70,format=auto,width=300/https://media.easy-peasy.ai/3c4f398d-6f82-4193-9b3f-81f4c0fe9a67/eef2f253-8a9a-4eaf-b8ba-d86e720455c3.png" alt="Learning Illustration">
+    </div>
+  </section>
+
+  <!-- Feature Section -->
+  <section class="features">
+    <h2>Why Choose Focotech?</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>📚 Interactive Lessons</h3>
+        <p>Learn with engaging, step-by-step lessons and real projects.</p>
+      </div>
+      <div class="feature-card">
+        <h3>📊 Track Your Progress</h3>
+        <p>Visualize your learning journey with streaks & skill graphs.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🏆 Certificates</h3>
+        <p>Earn verifiable certificates as you complete courses.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="courses" id="Courses">
+    <div class="course-container">
+      <h1>Online Learning Platform</h1>
+  
+      <div class="course-selector">
+        <button onclick="showCourse(1)">Python</button>
+        <button onclick="showCourse(2)">JavaScript</button>
+        <button onclick="showCourse(3)">HTML & CSS</button>
+      </div>
+  
+      <!-- Courses -->
+      <div id="course1" class="course">
+        <h2>Python Course</h2>
+        <div class="module" id="course1-module1">
+          <h3>Module 1: Python Basics</h3>
+          <video src="python1.mp4" controls></video>
+          <p><a href="python1.pdf" download>Lesson 1 Notes</a></p>
+          <div class="quiz">
+            <p>Quiz: What is Python?</p>
+            <label><input type="radio" name="python-q1" value="wrong"> A snake</label><br>
+            <label><input type="radio" name="python-q1" value="correct"> A programming language</label><br>
+            <label><input type="radio" name="python-q1" value="wrong"> A car brand</label><br>
+            <button onclick="checkQuiz('python-q1','python-result1')">Submit</button>
+            <div class="quiz-result" id="python-result1"></div>
+          </div>
+        </div>
+        
+        <div class="module" id="course1-module2" style="display:none">
+          <h3>Module 2: Data Types & Variables</h3>
+          <video src="python2.mp4" controls></video>
+          <p><a href="python2.pdf" download>Lesson 2 Notes</a></p>
+        </div>
+        <div class="buttons">
+            <button onclick="prevModule('course1')">Previous Module</button>
+            <button onclick="nextModule('course1')">Next Module</button>
+          </div>
+          
+        
+      </div>
+  
+      <div id="course2" class="course" style="display:none">
+        <h2>JavaScript Course</h2>
+        <div class="module" id="course2-module1">
+          <h3>Module 1: JS Basics</h3>
+          <video src="js1.mp4" controls></video>
+          <p><a href="js1.pdf" download>Lesson 1 Notes</a></p>
+        </div>
+        <div class="buttons">
+          <button onclick="prevModule('course2')">Previous Module</button>
+          <button onclick="nextModule('course2')">Next Module</button>
+        </div>
+      </div>
+  
+      <div id="course3" class="course" style="display:none">
+        <h2>HTML & CSS Course</h2>
+        <div class="module" id="course3-module1">
+          <h3>Module 1: HTML Basics</h3>
+          <video src="html1.mp4" controls></video>
+          <p><a href="html1.pdf" download>Lesson 1 Notes</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Testimonials -->
+  <section class="testimonials" id="Leaderboard">
+    <h2>What Our Learners Say</h2>
+    <div class="testimonial-grid">
+      <blockquote>
+        “This platform helped me land my first job as a developer!”
+        <cite>- Brooklyn Simmons</cite>
+      </blockquote>
+      <blockquote>
+        “The gamified learning experience kept me motivated every day.”
+        <cite>- Adam Smith</cite>
+      </blockquote>
+    </div>
+  </section>
+
+
+<!-- Certificates Section -->
+<section class="certificates" id="Certificates">
+    <h2>Earn Your Certificates</h2>
+    <p>Showcase your achievements with verifiable certificates after completing each course.</p>
+    
+    <div class="certificate-grid">
+      <div class="certificate-card">
+        <img src="certificate1.jpg" alt="Certificate Example">
+        <h3>UI/UX Design Certificate</h3>
+        <p>Get certified for completing the Advance UI/UX Design course.</p>
+      </div>
+      <div class="certificate-card">
+        <img src="certificate2.jpg" alt="Certificate Example">
+        <h3>Web Development Certificate</h3>
+        <p>Receive recognition for completing the Web Development course.</p>
+      </div>
+    </div>
+  </section>
+  
+
+
+  <!-- CTA Section -->
+  <section class="cta" >
+    <h2>Ready to Start Learning?</h2>
+    <button class="btn-primary">Join Now</button>
+  </section>
+
+
+<!-- Contact Section -->
+<section class="contact" id="Contact">
+    <h2>Contact Us</h2>
+    <p>Have questions or need support? Get in touch with us!</p>
+  
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit" class="btn-primary">Send Message</button>
+    </form>
+  </section>
+  
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Focotech. All rights reserved.</p>
+  </footer>
+
+ <!-- Login Modal -->
+<div class="modal" id="loginModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('loginModal')">&times;</span>
+      <h2>Login</h2>
+      <form class="auth-form">
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit" class="btn-primary">Login</button>
+      </form>
+      <p>Don't have an account? <a href="#" onclick="switchModal('loginModal','registerModal')">Register</a></p>
+    </div>
+  </div>
+  
+  <!-- Register Modal -->
+  <div class="modal" id="registerModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('registerModal')">&times;</span>
+      <h2>Register</h2>
+      <form class="auth-form">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit" class="btn-primary">Register</button>
+      </form>
+      <p>Already have an account? <a href="#" onclick="switchModal('registerModal','loginModal')">Login</a></p>
+    </div>
+  </div>
+  
+
+ 
+    <script src="script.js"></script>
+    
+    <!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js"></script>
+
+
+
+
+</body>
+</html> 
