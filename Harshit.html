@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -365,9 +366,6 @@ body {
   font-size: 1rem;
 }
 
-
-
-
 /* Navbar CTA Buttons */
 .cta-buttons {
   align-items: center;
@@ -375,8 +373,6 @@ body {
   gap: 0.8rem;
 
 }
-
-
 
 /* Primary Button (Get Started) */
 .btn-primary {
@@ -426,8 +422,6 @@ body {
     text-align: center;
   }
 }
-
-
 
 /* Search Box Styling */
 .search-box {
@@ -591,8 +585,6 @@ body {
   }
 }
 
-
-
 .hero-image img {
   width: 100%;
   max-width: 500px;
@@ -604,7 +596,6 @@ body {
     max-width: 300px; /* smaller on mobile */
   }
 }
-
 
 
 /* Responsive Modal Styling */
@@ -1026,9 +1017,6 @@ blockquote {
 }
 
 
-
-
-
 /* place exchange */
 .navbar-container {
   display: flex;
@@ -1037,6 +1025,121 @@ blockquote {
   gap: 1rem;
   flex-wrap: wrap;
 }
+
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  h1, h2 {
+    text-align: center;
+    color: #333;
+  }
+
+  .module {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+
+  video {
+    width: 100%;
+    max-height: 400px;
+    border-radius: 8px;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  button {
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #0056b3;
+  }
+
+  .quiz {
+    margin-top: 20px;
+    padding: 10px;
+    background: #eef;
+    border-radius: 8px;
+  }
+
+  .quiz input[type="radio"] {
+    margin-right: 10px;
+  }
+
+  .quiz-result {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+  .course-selector {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .course-selector button {
+    margin: 0 5px;
+  }
+
+
+  body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #fff, #ffe6d1);
+  color: #333;
+  padding-top: 80px; /* ✅ account for fixed navbar */
+}
+
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #fff, #ffe6d1);
+  color: #333;
+  padding-top: 80px; /* ✅ to avoid navbar overlap */
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  overflow-y: auto;
+  z-index: 2000;
+}
+
 
 
   </style>
@@ -1057,27 +1160,28 @@ blockquote {
   
       <!-- Logo in the middle/after links -->
       <a href="#Home" class="logo">
-        <img src="logo.png" alt="Focotech Logo">
+        <img src="https://cdn.vectorstock.com/i/500p/41/90/skill-development-word-concepts-mint-banner-vector-42394190.jpg" alt="Focotech Logo">
       </a>
   
       <!-- Search + CTA Buttons -->
       <div class="navbar-right">
         <div class="search-box">
-          <input type="text" id="searchInput" placeholder="Search..." />
-          <button onclick="handleSearch()">🔍</button>
+          <input type="text" id="searchInput"  placeholder="Search..."/>
+          <button onclick="handleSearch()" >🔍</button>
+         
+
         </div>
         <div class="cta-buttons">
           <button class="btn-secondary" onclick="openModal('loginModal')">Login / Register</button>
-          <button class="btn-primary">Get Started</button>
+          <button class="btn-primary" >Get Started</button>
         </div>
-        <div class="hamburger">&#9776;</div>
+        <!-- <div class="hamburger">&#9776;</div> -->
+        <div class="hamburger" aria-label="Toggle navigation menu">&#9776;</div>
+
       </div>
     </div>
   </header>
   
- 
-
-
 
   <!-- Hero Section -->
   <section class="hero"  id="Home">
@@ -1086,7 +1190,12 @@ blockquote {
       <p>Master skills with curated lessons, track your progress, and earn certificates.</p>
       <div class="hero-buttons">
         <button class="btn-primary">Start Learning</button>
-        <button class="btn-secondary">Explore Courses</button>
+
+        <button class="btn-secondary" onclick="document.getElementById('Courses').scrollIntoView({ behavior: 'smooth' })">
+            Explore Courses
+          </button>
+
+          
       </div>
     </div>
     <div class="hero-image">
@@ -1113,22 +1222,71 @@ blockquote {
     </div>
   </section>
 
-  <!-- Course Preview Section -->
+
   <section class="courses" id="Courses">
-    <h2>Popular Courses</h2>
-    <div class="course-grid">
-      <div class="course-card">
-        <img src="course1.jpg" alt="Course">
-        <h3>Advance UI/UX Design</h3>
-        <p>18/40 Lessons • 2 hrs left</p>
+    <div class="course-container">
+      <h1>Online Learning Platform</h1>
+  
+      <div class="course-selector">
+        <button onclick="showCourse(1)">Python</button>
+        <button onclick="showCourse(2)">JavaScript</button>
+        <button onclick="showCourse(3)">HTML & CSS</button>
       </div>
-      <div class="course-card">
-        <img src="course2.jpg" alt="Course">
-        <h3>Basic Web Development</h3>
-        <p>18/40 Lessons • 2 hrs left</p>
+  
+      <!-- Courses -->
+      <div id="course1" class="course">
+        <h2>Python Course</h2>
+        <div class="module" id="course1-module1">
+          <h3>Module 1: Python Basics</h3>
+          <video src="python1.mp4" controls></video>
+          <p><a href="python1.pdf" download>Lesson 1 Notes</a></p>
+          <div class="quiz">
+            <p>Quiz: What is Python?</p>
+            <label><input type="radio" name="python-q1" value="wrong"> A snake</label><br>
+            <label><input type="radio" name="python-q1" value="correct"> A programming language</label><br>
+            <label><input type="radio" name="python-q1" value="wrong"> A car brand</label><br>
+            <button onclick="checkQuiz('python-q1','python-result1')">Submit</button>
+            <div class="quiz-result" id="python-result1"></div>
+          </div>
+        </div>
+        
+        <div class="module" id="course1-module2" style="display:none">
+          <h3>Module 2: Data Types & Variables</h3>
+          <video src="python2.mp4" controls></video>
+          <p><a href="python2.pdf" download>Lesson 2 Notes</a></p>
+        </div>
+        <div class="buttons">
+            <button onclick="prevModule('course1')">Previous Module</button>
+            <button onclick="nextModule('course1')">Next Module</button>
+          </div>
+          
+        
+      </div>
+  
+      <div id="course2" class="course" style="display:none">
+        <h2>JavaScript Course</h2>
+        <div class="module" id="course2-module1">
+          <h3>Module 1: JS Basics</h3>
+          <video src="js1.mp4" controls></video>
+          <p><a href="js1.pdf" download>Lesson 1 Notes</a></p>
+        </div>
+        <div class="buttons">
+          <button onclick="prevModule('course2')">Previous Module</button>
+          <button onclick="nextModule('course2')">Next Module</button>
+        </div>
+      </div>
+  
+      <div id="course3" class="course" style="display:none">
+        <h2>HTML & CSS Course</h2>
+        <div class="module" id="course3-module1">
+          <h3>Module 1: HTML Basics</h3>
+          <video src="html1.mp4" controls></video>
+          <p><a href="html1.pdf" download>Lesson 1 Notes</a></p>
+        </div>
       </div>
     </div>
   </section>
+  
 
   <!-- Testimonials -->
   <section class="testimonials" id="Leaderboard">
@@ -1223,14 +1381,6 @@ blockquote {
   </div>
   
 
-
-
-
-  <!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js"></script>
-
-
   <script>
 
 const hamburger = document.querySelector('.hamburger');
@@ -1289,20 +1439,21 @@ window.onclick = function (event) {
 };
 
 
- // Your Firebase project configuration
- const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
-  };
 
-  // Initialize Firebase
-  const app = firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
+  
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
 
+
+const app = firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
 
 
 
@@ -1352,21 +1503,59 @@ firebase.auth().onAuthStateChanged(user => {
 
 // search bar
 
+// function handleSearch() {
+//   const query = document.getElementById("searchInput").value.toLowerCase();
+
+//   if (!query) return alert("Please type something to search!");
+
+  
+//   const sections = ["home", "courses", "leaderboard", "certificates", "contact"];
+//   const match = sections.find(section => section.includes(query));
+
+//   if (match) {
+    
+//     document.getElementById(match.charAt(0).toUpperCase() + match.slice(1)).scrollIntoView({ behavior: "smooth" });
+//   } else {
+   
+//     window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
+//   }
+// }
+
+// document.getElementById("searchInput").addEventListener("keypress", function (e) {
+//   if (e.key === "Enter") {
+//     handleSearch();
+//   }
+// });
+
 function handleSearch() {
-  const query = document.getElementById("searchInput").value.toLowerCase();
+  const query = document.getElementById("searchInput").value.toLowerCase().trim();
 
   if (!query) return alert("Please type something to search!");
 
-  // Match query with available section IDs
-  const sections = ["home", "courses", "leaderboard", "certificates", "contact"];
-  const match = sections.find(section => section.includes(query));
+  // Map search keywords to course IDs
+  const courseMap = {
+    python: 1,
+    javascript: 2,
+    "html": 3,
+    "css": 3,
+    "html & css": 3
+  };
 
-  if (match) {
-    // Scroll to section if match found
-    document.getElementById(match.charAt(0).toUpperCase() + match.slice(1)).scrollIntoView({ behavior: "smooth" });
+  let matchedCourse = null;
+
+  for (let key in courseMap) {
+    if (query.includes(key)) {
+      matchedCourse = courseMap[key];
+      break;
+    }
+  }
+
+  if (matchedCourse) {
+    showCourse(matchedCourse); // Show the matched course
+    // Scroll to the courses section
+    document.getElementById("Courses").scrollIntoView({ behavior: "smooth" });
   } else {
-    // Redirect to search results page (optional)
-    window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
+    alert("No course found matching your search!");
   }
 }
 
@@ -1377,6 +1566,189 @@ document.getElementById("searchInput").addEventListener("keypress", function (e)
 });
 
 
+const totalModules = { course1: 2, course2: 1, course3: 1 };
+const currentModule = { course1: 1, course2: 1, course3: 1 };
+
+
+function showModule(courseId) {
+  const total = totalModules[courseId];
+  const current = currentModule[courseId];
+  for (let i = 1; i <= total; i++) {
+    document.getElementById(courseId + '-module' + i).style.display = (i === current) ? 'block' : 'none';
+  }
+}
+
+
+function showCourse(courseId) {
+  document.querySelectorAll('.course').forEach(course => course.style.display = 'none');
+  document.getElementById('course' + courseId).style.display = 'block';
+  showModule('course' + courseId); // display the current module for that course
+}
+
+
+
+function nextModule(courseId) {
+  if (currentModule[courseId] < totalModules[courseId]) {
+    currentModule[courseId]++;
+    showModule(courseId);
+  }
+}
+
+function prevModule(courseId) {
+  if (currentModule[courseId] > 1) {
+    currentModule[courseId]--;
+    showModule(courseId);
+  }
+}
+
+
+function checkQuiz(questionName, resultId) {
+  const options = document.getElementsByName(questionName);
+  let resultText = '';
+  for (let i = 0; i < options.length; i++) {
+    if (options[i].checked) {
+      resultText = options[i].value === 'correct' ? 'Correct!' : 'Wrong, try again.';
+    }
+  }
+  document.getElementById(resultId).innerText = resultText;
+}
+
+// Initialize first course
+showCourse(1);
+
+
+
+// function showModule(courseId) {
+//   const total = totalModules[courseId];
+//   const current = currentModule[courseId];
+
+//   for (let i = 1; i <= total; i++) {
+//     const moduleEl = document.getElementById(courseId + '-module' + i);
+//     if (moduleEl) {
+//       moduleEl.style.display = (i === current) ? 'block' : 'none';
+//     }
+//   }
+// }
+
+
+
+
+
+for (let courseId in currentModule) { 
+  showModule(courseId);
+}
+
+ 
+// Initialize first course and modules
+showCourse(1);
+
+for (let courseId in currentModule) {
+  showModule(courseId);
+}
+
+
+
+
+function nextModule(courseId) {
+  if (currentModule[courseId] < totalModules[courseId]) {
+    currentModule[courseId]++;
+    showModule(courseId);
+  } else {
+    alert("You are on the last module!");
+  }
+}
+
+function prevModule(courseId) {
+  if (currentModule[courseId] > 1) {
+    currentModule[courseId]--;
+    showModule(courseId);
+  } else {
+    alert("You are on the first module!");
+  }
+}
+
+
+function nextModule(courseId) {
+  if (currentModule[courseId] < totalModules[courseId]) {
+    currentModule[courseId]++;
+    showModule(courseId);
+  } else {
+    const nextCourse = {
+      course1: 'course2',
+      course2: 'course3'
+    }[courseId];
+
+    if (nextCourse) {
+      currentModule[nextCourse] = 1; // start from first module of next course
+      showCourse(parseInt(nextCourse.slice(-1))); // show next course
+    } else {
+      alert("You completed all modules!");
+    }
+  }
+}
+
+
+function handleSearch() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const courses = document.querySelectorAll(".course");
+  let found = false;
+
+  courses.forEach(course => {
+    const title = course.querySelector("h2").innerText.toLowerCase();
+    if (title.includes(input)) {
+      course.style.display = "block";
+      course.scrollIntoView({ behavior: "smooth" });
+      found = true;
+    } else {
+      course.style.display = "none";
+    }
+  });
+
+  if (!found) {
+    alert("No matching course found!");
+  }
+}
+
+function openModal(modalId) {
+  document.getElementById(modalId).style.display = "flex";
+  document.body.style.overflow = "hidden"; // disable background scroll
+}
+
+function closeModal(modalId) {
+  document.getElementById(modalId).style.display = "none";
+  document.body.style.overflow = "auto"; // re-enable scroll
+}
+
+
+
+// Close modal when clicking outside
+window.onclick = function (event) {
+  const modals = document.querySelectorAll(".modal");
+  modals.forEach(modal => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+};
+
+function openModal(modalId) {
+  document.getElementById(modalId).style.display = "flex";
+}
+
+navLinksItems.forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+  });
+});
+
   </script>
+
+    <!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js"></script>
+
+
+
+
 </body>
-</html>
+</html> 
